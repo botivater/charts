@@ -84,13 +84,13 @@ affinity: {}
 settings:
   general:
     logLevel: debug
-    apiToken: xxx
+    apiToken:
   database:
-    url: mysql://root:root@127.0.0.1:3306/discord-bot
+    url:
   discord:
-    applicationId: xxx
-    botToken: xxx
+    applicationId:
+    botToken:
   auth0:
-    domain: xxx
-    clientId: xxx
-    audience: xxx
+    domain:
+    clientId:
+    audience:
