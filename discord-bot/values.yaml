@@ -11,8 +11,8 @@ image:
   tag: ""
 
 imagePullSecrets: []
-nameOverride: "botivater-discord-bot"
-fullnameOverride: "botivater-discord-bot"
+nameOverride: "discord-bot"
+fullnameOverride: "discord-bot"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -47,7 +47,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: botivater-api.jonasclaes.be
+    - host: botivater-api.cluster.local
       paths:
         - path: /
           pathType: Prefix
