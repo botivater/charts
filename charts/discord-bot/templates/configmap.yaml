@@ -3,5 +3,4 @@ apiVersion: v1
 metadata:
   name: {{ .Release.Name }}-config
 data:
-  corsOrigin: {{ .Values.settings.config.corsOrigin | toString }}
   botGrpcUrl: {{ .Values.settings.config.botGrpcUrl | toString }}

@@ -41,11 +41,6 @@ spec:
                 secretKeyRef:
                   key: databaseUrl
                   name: {{ .Release.Name }}-database
-            - name: "CORS_ORIGIN"
-              valueFrom:
-                configMapKeyRef:
-                  key: corsOrigin
-                  name: {{ .Release.Name }}-config
             - name: "BOT_GRPC_URL"
               valueFrom:
                 configMapKeyRef:
