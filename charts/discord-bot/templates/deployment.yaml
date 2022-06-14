@@ -28,24 +28,56 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Chart.Name }}-api
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.apiImage.repository }}:{{ .Values.apiImage.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.apiImage.pullPolicy }}
           env:
             - name: "NODE_ENV"
               value: production
-            - name: "LOG_LEVEL"
+            - name: "DATABASE_URL"
               valueFrom:
                 secretKeyRef:
-                  key: logLevel
-                  name: {{ .Release.Name }}-general
-            - name: "API_TOKEN"
+                  key: databaseUrl
+                  name: {{ .Release.Name }}-database
+            - name: "CORS_ORIGIN"
+              valueFrom:
+                configMapKeyRef:
+                  key: corsOrigin
+                  name: {{ .Release.Name }}-config
+            - name: "BOT_GRPC_URL"
+              valueFrom:
+                configMapKeyRef:
+                  key: botGrpcUrl
+                  name: {{ .Release.Name }}-config
+            - name: "JWT_SECRET"
               valueFrom:
                 secretKeyRef:
-                  key: apiToken
-                  name: {{ .Release.Name }}-general
+                  key: jwtSecret
+                  name: {{ .Release.Name }}-jwt
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /v1/health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /v1/health
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: {{ .Chart.Name }}-discordbot
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.botImage.repository }}:{{ .Values.botImage.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.botImage.pullPolicy }}
+          env:
+            - name: "NODE_ENV"
+              value: production
             - name: "DATABASE_URL"
               valueFrom:
                 secretKeyRef:
@@ -61,34 +93,10 @@ spec:
                 secretKeyRef:
                   key: botToken
                   name: {{ .Release.Name }}-discord
-
-            - name: "API_AUTH0_DOMAIN"
-              valueFrom:
-                secretKeyRef:
-                  key: domain
-                  name: {{ .Release.Name }}-auth0
-            - name: "API_AUTH0_CLIENT_ID"
-              valueFrom:
-                secretKeyRef:
-                  key: clientId
-                  name: {{ .Release.Name }}-auth0
-            - name: "API_AUTH0_AUDIENCE"
-              valueFrom:
-                secretKeyRef:
-                  key: audience
-                  name: {{ .Release.Name }}-auth0
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 5000
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

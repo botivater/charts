@@ -4,8 +4,14 @@
 
 replicaCount: 1
 
-image:
-  repository: ghcr.io/botivater/discord-bot
+botImage:
+  repository: ghcr.io/botivater/discordbot
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+apiImage:
+  repository: ghcr.io/botivater/api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -82,15 +88,13 @@ tolerations: []
 affinity: {}
 
 settings:
-  general:
-    logLevel: debug
-    apiToken:
   database:
     url:
   discord:
     applicationId:
     botToken:
-  auth0:
-    domain:
-    clientId:
-    audience:
+  jwt:
+    secret:
+  config:
+    corsOrigin:
+    botGrpcUrl:
