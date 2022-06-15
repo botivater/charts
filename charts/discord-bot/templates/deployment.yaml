@@ -46,6 +46,11 @@ spec:
                 configMapKeyRef:
                   key: botGrpcUrl
                   name: {{ .Release.Name }}-config
+            - name: "BOT_ADMIN_PANEL_URL"
+              valueFrom:
+                configMapKeyRef:
+                  key: botAdminPanelUrl
+                  name: {{ .Release.Name }}-config
             - name: "JWT_SECRET"
               valueFrom:
                 secretKeyRef:
@@ -88,6 +93,11 @@ spec:
                 secretKeyRef:
                   key: botToken
                   name: {{ .Release.Name }}-discord
+            - name: "BOT_ADMIN_PANEL_URL"
+              valueFrom:
+                configMapKeyRef:
+                  key: botAdminPanelUrl
+                  name: {{ .Release.Name }}-config
           ports:
             - name: http
               containerPort: 5000

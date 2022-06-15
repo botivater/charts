@@ -4,3 +4,4 @@ metadata:
   name: {{ .Release.Name }}-config
 data:
   botGrpcUrl: {{ .Values.settings.config.botGrpcUrl | toString }}
+  botAdminPanelUrl: {{ .Values.settings.config.botAdminPanelUrl | toString }}
