@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   discord-bot:
   - apiVersion: v2
+    appVersion: 2.5.4
+    created: "2022-06-29T12:32:48.661478658Z"
+    description: A Helm chart for Kubernetes
+    digest: c908da4670d78eec79f2488d71c3b15ae3b5766459d663544cca1de1792ca2dd
+    name: discord-bot
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/discord-bot-2.5.4/discord-bot-2.5.4.tgz
+    version: 2.5.4
+  - apiVersion: v2
     appVersion: 2.5.3
     created: "2022-06-28T21:43:02.872177825Z"
     description: A Helm chart for Kubernetes
