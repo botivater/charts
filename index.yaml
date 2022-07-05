@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  api:
+  - apiVersion: v2
+    appVersion: 2.5.5
+    created: "2022-07-05T05:36:23.644481837Z"
+    description: A Helm chart for Kubernetes
+    digest: 0888c224bf55cc4abc3157df66346781beccc6d86a129a8ff8babb0fee4d4cee
+    name: api
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/api-2.5.5/api-2.5.5.tgz
+    version: 2.5.5
   discord-bot:
   - apiVersion: v2
     appVersion: 2.5.4
@@ -231,4 +242,37 @@ entries:
     urls:
     - https://github.com/botivater/charts/releases/download/discord-bot-0.1.2/discord-bot-0.1.2.tgz
     version: 0.1.2
+  discordbot:
+  - apiVersion: v2
+    appVersion: 2.5.5
+    created: "2022-07-05T05:36:23.805557042Z"
+    description: A Helm chart for Kubernetes
+    digest: d835cb2f0d54fe879712ac5cccfa379746ad88f8e17e63a45a1890ee79c4e4d7
+    name: discordbot
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/discordbot-2.5.5/discordbot-2.5.5.tgz
+    version: 2.5.5
+  emailer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-05T05:36:23.960196943Z"
+    description: A Helm chart for Kubernetes
+    digest: 58f4af613143b8af9730e817b7951423f770519317b570af6812176f5d4d634e
+    name: emailer
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/emailer-0.1.0/emailer-0.1.0.tgz
+    version: 0.1.0
+  module-lymevereniging-member-checker:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-05T05:36:24.121948348Z"
+    description: A Helm chart for Kubernetes
+    digest: ae3f95504a9476873d05c801bce281109ac8e2b7cecd8c5a6bca6b4cfd2e8a93
+    name: module-lymevereniging-member-checker
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/module-lymevereniging-member-checker-0.1.0/module-lymevereniging-member-checker-0.1.0.tgz
+    version: 0.1.0
 generated: "2022-05-30T23:20:07.129670344+02:00"
