@@ -11,6 +11,16 @@ entries:
     urls:
     - https://github.com/botivater/charts/releases/download/api-2.5.5/api-2.5.5.tgz
     version: 2.5.5
+  - apiVersion: v2
+    appVersion: 2.5.5
+    created: "2022-07-05T09:43:52.423854585Z"
+    description: A Helm chart for Kubernetes
+    digest: 9650d0b0f73ef9c61ffc6eea11f2843e43fa10e53ceae36d2d0b87e97cea8d66
+    name: api
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/api-2.5.5.1/api-2.5.5.1.tgz
+    version: 2.5.5.1
   discordbot:
   - apiVersion: v2
     appVersion: 2.5.5
