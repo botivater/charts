@@ -3,6 +3,16 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 2.5.5
+    created: "2022-07-05T10:53:05.29972567Z"
+    description: A Helm chart for Kubernetes
+    digest: 5a6f8aec32ef70973916f1b5dc0252164857fc2a2961ac62091ef3304aa8f142
+    name: api
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/api-2.5.7/api-2.5.7.tgz
+    version: 2.5.7
+  - apiVersion: v2
+    appVersion: 2.5.5
     created: "2022-07-05T09:45:53.62897889Z"
     description: A Helm chart for Kubernetes
     digest: 2aa6885c382e8717bdcf0b5a4d6755295c2ae697cb261d20e333b9f7e4d33e61
