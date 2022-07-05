@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "discord-bot.name" -}}
+{{- define "module-lymevereniging-member-checker.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "discord-bot.fullname" -}}
+{{- define "module-lymevereniging-member-checker.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "discord-bot.chart" -}}
+{{- define "module-lymevereniging-member-checker.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "discord-bot.labels" -}}
-helm.sh/chart: {{ include "discord-bot.chart" . }}
-{{ include "discord-bot.selectorLabels" . }}
+{{- define "module-lymevereniging-member-checker.labels" -}}
+helm.sh/chart: {{ include "module-lymevereniging-member-checker.chart" . }}
+{{ include "module-lymevereniging-member-checker.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "discord-bot.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "discord-bot.name" . }}
+{{- define "module-lymevereniging-member-checker.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "module-lymevereniging-member-checker.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "discord-bot.serviceAccountName" -}}
+{{- define "module-lymevereniging-member-checker.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "discord-bot.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "module-lymevereniging-member-checker.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

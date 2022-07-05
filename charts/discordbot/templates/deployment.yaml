@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "discord-bot.fullname" . }}
+  name: {{ include "discordbot.fullname" . }}
   labels:
-    {{- include "discord-bot.labels" . | nindent 4 }}
+    {{- include "discordbot.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "discord-bot.selectorLabels" . | nindent 6 }}
+      {{- include "discordbot.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,63 +18,21 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "discord-bot.selectorLabels" . | nindent 8 }}
+        {{- include "discordbot.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "discord-bot.serviceAccountName" . }}
+      serviceAccountName: {{ include "discordbot.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}-api
+        - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.apiImage.repository }}:{{ .Values.apiImage.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.apiImage.pullPolicy }}
-          env:
-            - name: "NODE_ENV"
-              value: production
-            - name: "DATABASE_URL"
-              valueFrom:
-                secretKeyRef:
-                  key: databaseUrl
-                  name: {{ .Release.Name }}-database
-            - name: "BOT_GRPC_URL"
-              valueFrom:
-                configMapKeyRef:
-                  key: botGrpcUrl
-                  name: {{ .Release.Name }}-config
-            - name: "BOT_ADMIN_PANEL_URL"
-              valueFrom:
-                configMapKeyRef:
-                  key: botAdminPanelUrl
-                  name: {{ .Release.Name }}-config
-            - name: "JWT_SECRET"
-              valueFrom:
-                secretKeyRef:
-                  key: jwtSecret
-                  name: {{ .Release.Name }}-jwt
-          ports:
-            - name: http
-              containerPort: 3000
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /v1/health
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /v1/health
-              port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-        - name: {{ .Chart.Name }}-discordbot
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.botImage.repository }}:{{ .Values.botImage.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.botImage.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "NODE_ENV"
               value: production
@@ -98,6 +56,11 @@ spec:
                 configMapKeyRef:
                   key: botAdminPanelUrl
                   name: {{ .Release.Name }}-config
+            - name: "RABBITMQ_URI"
+              valueFrom:
+                configMapKeyRef:
+                  key: rabbitmqURI
+                  name: {{ .Release.Name }}-config
             - name: "OPENAI_API_KEY"
               valueFrom:
                 secretKeyRef:
@@ -105,8 +68,16 @@ spec:
                   name: {{ .Release.Name }}-openai
           ports:
             - name: http
-              containerPort: 5000
+              containerPort: 80
               protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
