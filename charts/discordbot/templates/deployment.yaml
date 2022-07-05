@@ -40,32 +40,32 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: databaseUrl
-                  name: {{ .Release.Name }}-database
+                  name: {{ .Release.Name }}-discordbot-database
             - name: "APPLICATION_ID"
               valueFrom:
                 secretKeyRef:
                   key: applicationId
-                  name: {{ .Release.Name }}-discord
+                  name: {{ .Release.Name }}-discordbot-discord
             - name: "BOT_TOKEN"
               valueFrom:
                 secretKeyRef:
                   key: botToken
-                  name: {{ .Release.Name }}-discord
+                  name: {{ .Release.Name }}-discordbot-discord
             - name: "BOT_ADMIN_PANEL_URL"
               valueFrom:
                 configMapKeyRef:
                   key: botAdminPanelUrl
-                  name: {{ .Release.Name }}-config
+                  name: {{ .Release.Name }}-discordbot-config
             - name: "RABBITMQ_URI"
               valueFrom:
                 configMapKeyRef:
                   key: rabbitmqURI
-                  name: {{ .Release.Name }}-config
+                  name: {{ .Release.Name }}-discordbot-config
             - name: "OPENAI_API_KEY"
               valueFrom:
                 secretKeyRef:
                   key: apiKey
-                  name: {{ .Release.Name }}-openai
+                  name: {{ .Release.Name }}-discordbot-openai
           ports:
             - name: http
               containerPort: 80

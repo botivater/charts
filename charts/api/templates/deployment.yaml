@@ -40,22 +40,22 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: databaseUrl
-                  name: {{ .Release.Name }}-database
+                  name: {{ .Release.Name }}-api-database
             - name: "RABBITMQ_URI"
               valueFrom:
                 configMapKeyRef:
                   key: rabbitmqURI
-                  name: {{ .Release.Name }}-config
+                  name: {{ .Release.Name }}-api-config
             - name: "BOT_ADMIN_PANEL_URL"
               valueFrom:
                 configMapKeyRef:
                   key: botAdminPanelUrl
-                  name: {{ .Release.Name }}-config
+                  name: {{ .Release.Name }}-api-config
             - name: "JWT_SECRET"
               valueFrom:
                 secretKeyRef:
                   key: jwtSecret
-                  name: {{ .Release.Name }}-jwt
+                  name: {{ .Release.Name }}-api-jwt
           ports:
             - name: http
               containerPort: 3000
