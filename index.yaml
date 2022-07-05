@@ -3,6 +3,16 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 2.5.5
+    created: "2022-07-05T11:38:10.861163429Z"
+    description: A Helm chart for Kubernetes
+    digest: 20364c5cb01ec825eaf8b297eef82e8957f1e941a01e50ac9ec36008182a2378
+    name: api
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/api-2.5.8/api-2.5.8.tgz
+    version: 2.5.8
+  - apiVersion: v2
+    appVersion: 2.5.5
     created: "2022-07-05T10:53:05.29972567Z"
     description: A Helm chart for Kubernetes
     digest: 5a6f8aec32ef70973916f1b5dc0252164857fc2a2961ac62091ef3304aa8f142
@@ -32,6 +42,16 @@ entries:
     - https://github.com/botivater/charts/releases/download/api-2.5.5/api-2.5.5.tgz
     version: 2.5.5
   discordbot:
+  - apiVersion: v2
+    appVersion: 2.5.5
+    created: "2022-07-05T11:38:10.981725383Z"
+    description: A Helm chart for Kubernetes
+    digest: 02154709d18a2a9dced638b573e77d8d5228ff3c0ff4e879ef9fb8152f0fe246
+    name: discordbot
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/discordbot-2.5.8/discordbot-2.5.8.tgz
+    version: 2.5.8
   - apiVersion: v2
     appVersion: 2.5.5
     created: "2022-07-05T05:36:23.805557042Z"
