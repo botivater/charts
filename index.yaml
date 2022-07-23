@@ -3,6 +3,16 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 2.7.1
+    created: "2022-07-23T08:54:36.00995398Z"
+    description: A Helm chart for Kubernetes
+    digest: 2ca965a7b0a36d5f689f95dd9045bb9f4a626d1ea48949805dc76c1f15c23769
+    name: api
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/api-2.7.2/api-2.7.2.tgz
+    version: 2.7.2
+  - apiVersion: v2
+    appVersion: 2.7.1
     created: "2022-07-23T08:44:14.964749079Z"
     description: A Helm chart for Kubernetes
     digest: a48ff2f1681a8e59d575254d4e47e94f756986e44d11d6c27d3d37c1a40dfbb2
@@ -54,6 +64,16 @@ entries:
   discordbot:
   - apiVersion: v2
     appVersion: 2.7.1
+    created: "2022-07-23T08:54:36.14706834Z"
+    description: A Helm chart for Kubernetes
+    digest: b0ef80bb22618c4d0c1553c76b0f866167a06865dd37d1ee413cacd1de6802d3
+    name: discordbot
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/discordbot-2.7.2/discordbot-2.7.2.tgz
+    version: 2.7.2
+  - apiVersion: v2
+    appVersion: 2.7.1
     created: "2022-07-23T08:44:15.099336338Z"
     description: A Helm chart for Kubernetes
     digest: 384bd714503aa0e3cd9e2aabcd15e0ace3a671fcb84cf7858cdbb604fe39e3d1
@@ -85,6 +105,16 @@ entries:
   emailer:
   - apiVersion: v2
     appVersion: 2.7.1
+    created: "2022-07-23T08:54:36.298636176Z"
+    description: A Helm chart for Kubernetes
+    digest: 14652fc39b21fd16d976c6facbdf0ab9a15c63165f8b81c865e466fe6f501db3
+    name: emailer
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/emailer-2.7.2/emailer-2.7.2.tgz
+    version: 2.7.2
+  - apiVersion: v2
+    appVersion: 2.7.1
     created: "2022-07-23T08:44:15.213336081Z"
     description: A Helm chart for Kubernetes
     digest: 0c5b6dde89e45f1ea4d55c191b4beb9df5c9d780b32fc4c374df69184ede70de
@@ -104,6 +134,16 @@ entries:
     - https://github.com/botivater/charts/releases/download/emailer-0.1.0/emailer-0.1.0.tgz
     version: 0.1.0
   module-lymevereniging-member-checker:
+  - apiVersion: v2
+    appVersion: 2.7.1
+    created: "2022-07-23T08:54:36.439197274Z"
+    description: A Helm chart for Kubernetes
+    digest: cc31cc68f65b9e1161763a54b9c7a491bc91922d17999f76e12755a7ded70d29
+    name: module-lymevereniging-member-checker
+    type: application
+    urls:
+    - https://github.com/botivater/charts/releases/download/module-lymevereniging-member-checker-2.7.2/module-lymevereniging-member-checker-2.7.2.tgz
+    version: 2.7.2
   - apiVersion: v2
     appVersion: 2.7.1
     created: "2022-07-23T08:44:15.330723143Z"
