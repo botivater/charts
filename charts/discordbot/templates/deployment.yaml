@@ -66,6 +66,8 @@ spec:
                 secretKeyRef:
                   key: apiKey
                   name: {{ .Release.Name }}-discordbot-openai
+            - name: "TZ"
+              value: "UTC"
           ports:
             - name: http
               containerPort: 80
